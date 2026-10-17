@@ -19,6 +19,8 @@ final class ShareModel {
     private(set) var imageData: Data?
     private(set) var isLoading = true
     private(set) var didSave = false
+    /// True when the shared photo was already on the chosen piece, so it wasn't added again.
+    private(set) var photoWasAlreadyThere = false
     /// Pieces you can add to: in-progress first, newest first.
     private(set) var pieces: [Piece] = []
 
@@ -61,7 +63,7 @@ final class ShareModel {
             container.mainContext.insert(piece)
         }
         if let imageData {
-            piece.addPhoto(imageData, stage: stage)
+            photoWasAlreadyThere = !piece.addPhoto(imageData, stage: stage)
         }
         piece.updatedAt = .now
         try? container.mainContext.save()
@@ -70,7 +72,7 @@ final class ShareModel {
         // If the system closes us before it finishes, the main app uploads it next time it opens.
         didSave = true
         Task {
-            try? await Task.sleep(for: .seconds(0.8))
+            try? await Task.sleep(for: .seconds(photoWasAlreadyThere ? 2 : 0.8))
             extensionContext?.completeRequest(returningItems: nil)
         }
     }

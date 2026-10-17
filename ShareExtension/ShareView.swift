@@ -127,9 +127,16 @@ struct ShareView: View {
     }
 
     private var savedBadge: some View {
-        Label("Saved", systemImage: "checkmark.circle.fill")
-            .font(.title2.weight(.semibold))
-            .padding(24)
+        VStack(spacing: 6) {
+            Label("Saved", systemImage: "checkmark.circle.fill")
+                .font(.title2.weight(.semibold))
+            if model.photoWasAlreadyThere {
+                Text("That photo was already on this piece.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding(24)
             .background(.regularMaterial, in: .rect(cornerRadius: 16))
             .transition(.scale.combined(with: .opacity))
     }

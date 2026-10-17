@@ -12,7 +12,7 @@ struct PieceEditor: View {
     @State private var link: String
     @State private var notes: String
     @State private var stage: Stage
-    @State private var photoData: Data?
+    @State private var newPhotos: [Data] = []
 
     init(piece: Piece?) {
         self.piece = piece
@@ -32,17 +32,23 @@ struct PieceEditor: View {
                 // Photos of an existing piece are managed on its detail screen.
                 if piece == nil {
                     Section {
-                        if let image = Image(photoData: photoData) {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: .infinity, maxHeight: 260)
-                                .clipShape(.rect(cornerRadius: 12))
+                        if !newPhotos.isEmpty {
+                            ScrollView(.horizontal) {
+                                HStack(spacing: 8) {
+                                    ForEach(newPhotos.indices, id: \.self) { index in
+                                        Image(photoData: newPhotos[index])?
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 110, height: 110)
+                                            .clipShape(.rect(cornerRadius: 10))
+                                    }
+                                }
+                            }
                         }
-                        PhotoButtons { data in photoData = data }
-                        if photoData != nil {
-                            Button("Remove Photo", systemImage: "trash", role: .destructive) {
-                                photoData = nil
+                        PhotoButtons { data in newPhotos.append(data) }
+                        if !newPhotos.isEmpty {
+                            Button("Remove Photos", systemImage: "trash", role: .destructive) {
+                                newPhotos = []
                             }
                         }
                     }
@@ -102,8 +108,9 @@ struct PieceEditor: View {
         target.notes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
         target.inspirationURL = URL.fromUserInput(link)
         target.stage = stage
-        if let photoData {
-            target.addPhoto(photoData, stage: stage)
+        // A second apart so they keep the order they were chosen in.
+        for (index, data) in newPhotos.enumerated() {
+            target.addPhoto(data, stage: stage, addedAt: .now.addingTimeInterval(Double(index)))
         }
         target.updatedAt = .now
         dismiss()

@@ -63,12 +63,19 @@ final class Piece {
     }
 
     /// Adds a photo from any image data (HEIC, PNG, JPEG…), tagged with a stage.
-    func addPhoto(_ data: Data, stage: Stage, addedAt: Date = .now) {
+    /// Returns false, and adds nothing, if this piece already has the same photo.
+    @discardableResult
+    func addPhoto(_ data: Data, stage: Stage, addedAt: Date = .now) -> Bool {
         let photo = Photo(data: data, stage: stage, addedAt: addedAt)
+        if let fingerprint = photo.fingerprint,
+           (photos ?? []).contains(where: { $0.looksLike(fingerprint) }) {
+            return false
+        }
         if photos == nil { photos = [] }
         photos?.append(photo)
         catchUp(to: stage)
         updatedAt = .now
+        return true
     }
 
     /// Re-tags a photo with the stage it was taken at.
@@ -163,6 +170,8 @@ final class Photo {
     @Attribute(.externalStorage) var thumbnail: Data?
     var stageRaw: String = Stage.idea.rawValue
     var addedAt: Date = Date.now
+    /// Visual fingerprint used to spot the same photo being added twice.
+    var fingerprint: String?
     var piece: Piece?
 
     init(data: Data, stage: Stage, addedAt: Date = .now) {
@@ -170,6 +179,17 @@ final class Photo {
         self.thumbnail = ImageTools.jpeg(from: data, maxPixelSize: 600)
         self.stageRaw = stage.rawValue
         self.addedAt = addedAt
+        self.fingerprint = thumbnail.flatMap(ImageTools.fingerprint(from:))
+    }
+
+    /// Whether this is the same picture as `otherFingerprint`. Photos saved before
+    /// fingerprints existed get one worked out (and kept) the first time they're compared.
+    func looksLike(_ otherFingerprint: String) -> Bool {
+        if fingerprint == nil, let thumbnail {
+            fingerprint = ImageTools.fingerprint(from: thumbnail)
+        }
+        guard let fingerprint else { return false }
+        return ImageTools.isSamePhoto(fingerprint, otherFingerprint)
     }
 
     var stage: Stage {

@@ -1,26 +1,30 @@
 import PhotosUI
 import SwiftUI
 
-/// "Choose Photo" (Photos library) and, on iPhone/iPad, "Take Photo" (camera).
-/// Calls `onPick` with the image data, already resized to a sensible size.
+/// "Choose Photos" (Photos library, pick as many as you like) and, on iPhone/iPad,
+/// "Take Photo" (camera). Calls `onPick` once per photo, in the order chosen, with the
+/// image data already resized to a sensible size.
 struct PhotoButtons: View {
     var onPick: (Data) -> Void
 
-    @State private var pickerItem: PhotosPickerItem?
+    @State private var pickerItems: [PhotosPickerItem] = []
     @State private var isShowingCamera = false
 
     var body: some View {
-        PhotosPicker(selection: $pickerItem, matching: .images) {
-            Label("Choose Photo", systemImage: "photo.on.rectangle")
+        PhotosPicker(selection: $pickerItems, maxSelectionCount: nil, selectionBehavior: .ordered, matching: .images) {
+            Label("Choose Photos", systemImage: "photo.on.rectangle")
                 .frame(minHeight: 32)
         }
-        .onChange(of: pickerItem) {
-            guard let item = pickerItem else { return }
+        .onChange(of: pickerItems) {
+            guard !pickerItems.isEmpty else { return }
+            let items = pickerItems
+            pickerItems = []
             Task {
-                if let data = try? await item.loadTransferable(type: Data.self) {
-                    onPick(await resized(data))
+                for item in items {
+                    if let data = try? await item.loadTransferable(type: Data.self) {
+                        onPick(await resized(data))
+                    }
                 }
-                pickerItem = nil
             }
         }
 

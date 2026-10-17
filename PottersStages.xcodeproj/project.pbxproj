@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C93536B9208DB0E6835965E /* NotesImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46311B54DBE4865C1F60689A /* NotesImport.swift */; };
 		29936743B6764E862FDD40A3 /* PieceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D534D90D9C3080F09FECACD /* PieceEditor.swift */; };
 		3AFC0D11BA6CCCF4AE1DE01B /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
 		4182B51210A8A9D73B8082FA /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */; };
@@ -68,7 +67,6 @@
 		2D534D90D9C3080F09FECACD /* PieceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEditor.swift; sourceTree = "<group>"; };
 		41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		43C1205614E812B7DC234DBE /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
-		46311B54DBE4865C1F60689A /* NotesImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesImport.swift; sourceTree = "<group>"; };
 		6616442D9DB105B96DABC7EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecePickerSheet.swift; sourceTree = "<group>"; };
 		88FED9A96D092EA5AE96211A /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			children = (
 				DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */,
 				6616442D9DB105B96DABC7EA /* HomeView.swift */,
-				46311B54DBE4865C1F60689A /* NotesImport.swift */,
 				2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */,
 				D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */,
 				2D534D90D9C3080F09FECACD /* PieceEditor.swift */,
@@ -295,7 +292,6 @@
 			files = (
 				D0007E4002C3341F45464D0E /* HomeView.swift in Sources */,
 				5137CC8BE69F86220836D097 /* ImageTools.swift in Sources */,
-				1C93536B9208DB0E6835965E /* NotesImport.swift in Sources */,
 				92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */,
 				3AFC0D11BA6CCCF4AE1DE01B /* Piece.swift in Sources */,
 				66731510E884AC18CD2D768A /* PieceDetailView.swift in Sources */,

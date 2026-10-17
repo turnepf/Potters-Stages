@@ -8,9 +8,6 @@ struct PottersStagesApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                #if DEBUG
-                .task { NotesImport.runIfPresent(into: container.mainContext) }
-                #endif
         }
         .modelContainer(container)
         #if os(macOS)

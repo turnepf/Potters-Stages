@@ -11,6 +11,7 @@ struct PieceDetailView: View {
     @State private var pieceToDelete: Piece?
     @State private var photoToDelete: Photo?
     @State private var photoToMove: Photo?
+    @State private var isShowingDuplicateNotice = false
 
     var body: some View {
         ScrollView {
@@ -72,6 +73,11 @@ struct PieceDetailView: View {
             dismiss()
             context.delete(piece)
         }
+        .alert("Already Added", isPresented: $isShowingDuplicateNotice) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("That photo is already on this piece, so it wasn't added again.")
+        }
         .alert("Delete this photo?", isPresented: Binding(get: { photoToDelete != nil },
                                                           set: { if !$0 { photoToDelete = nil } })) {
             Button("Delete", role: .destructive) {
@@ -107,7 +113,11 @@ struct PieceDetailView: View {
 
             // New photos are tagged with the piece's current stage.
             HStack(spacing: 20) {
-                PhotoButtons { data in piece.addPhoto(data, stage: piece.stage) }
+                PhotoButtons { data in
+                    if !piece.addPhoto(data, stage: piece.stage) {
+                        isShowingDuplicateNotice = true
+                    }
+                }
             }
             .buttonStyle(.bordered)
         }
