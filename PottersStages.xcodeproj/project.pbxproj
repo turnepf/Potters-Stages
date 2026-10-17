@@ -21,6 +21,7 @@
 		92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */; };
 		9CA4C265CD85CA72F7E13204 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
 		AAE3002EF8AF4850831F0225 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E35C7AE914B6C85988562 /* Store.swift */; };
+		BB33583CB247F1554A484B24 /* WebLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB0415B2F1E6C103CDAF3B /* WebLinkTests.swift */; };
 		CEB7237274F79744A3E26F35 /* PiecePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */; };
 		D0007E4002C3341F45464D0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6616442D9DB105B96DABC7EA /* HomeView.swift */; };
 		D027958E979FAAB952D9E8E8 /* PottersStagesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8383F27E281915E8619B1F /* PottersStagesApp.swift */; };
@@ -32,6 +33,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		5F485B6B31D94DEFD995FBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5AC911E1F49086417693E8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4A3AEF7ABD5FD11246CF3B4;
+			remoteInfo = PottersStages;
+		};
+		604A8884B29CA57202507102 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5AC911E1F49086417693E8D /* Project object */;
 			proxyType = 1;
@@ -62,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0AB8C5752C9FBDC28A88B0F2 /* PottersStagesTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PottersStagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26572CD21889588D1DB5A6DC /* PottersStages.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PottersStages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoButtons.swift; sourceTree = "<group>"; };
 		2D534D90D9C3080F09FECACD /* PieceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEditor.swift; sourceTree = "<group>"; };
@@ -78,6 +87,7 @@
 		ACD1F52DA15769C94A7201EF /* ShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4DFA08936525DBE0F8F05D /* PieceGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceGrid.swift; sourceTree = "<group>"; };
 		B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModel.swift; sourceTree = "<group>"; };
+		BAEB0415B2F1E6C103CDAF3B /* WebLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkTests.swift; sourceTree = "<group>"; };
 		D55E35C7AE914B6C85988562 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceDetailView.swift; sourceTree = "<group>"; };
 		DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +100,7 @@
 				A0E3BEF6A956A0F10760F553 /* App */,
 				3B186FF7B9523090AAFF2668 /* Shared */,
 				AD0D10B98644510AFF14E375 /* ShareExtension */,
+				E8A92FF20411E472F7843F9F /* Tests */,
 				8FC099514A67DE3DDC961944 /* UITests */,
 				C7DDF35F39F04B6AF66B2FD4 /* Products */,
 			);
@@ -143,10 +154,19 @@
 			isa = PBXGroup;
 			children = (
 				26572CD21889588D1DB5A6DC /* PottersStages.app */,
+				0AB8C5752C9FBDC28A88B0F2 /* PottersStagesTests.xctest */,
 				A8131D4CE4DAC43FB5AFD647 /* PottersStagesUITests.xctest */,
 				ACD1F52DA15769C94A7201EF /* ShareExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E8A92FF20411E472F7843F9F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BAEB0415B2F1E6C103CDAF3B /* WebLinkTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +189,24 @@
 			productName = PottersStagesUITests;
 			productReference = A8131D4CE4DAC43FB5AFD647 /* PottersStagesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		77D43AAFA46294148236E501 /* PottersStagesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6585C2F0F6FE3022156C768 /* Build configuration list for PBXNativeTarget "PottersStagesTests" */;
+			buildPhases = (
+				A252BD887AF7AFE5F4282859 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				319E0CCC7B757EADCE902B82 /* PBXTargetDependency */,
+			);
+			name = PottersStagesTests;
+			packageProductDependencies = (
+			);
+			productName = PottersStagesTests;
+			productReference = 0AB8C5752C9FBDC28A88B0F2 /* PottersStagesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8E38DAE229858FE1B1999CBA /* ShareExtension */ = {
 			isa = PBXNativeTarget;
@@ -221,6 +259,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = F4A3AEF7ABD5FD11246CF3B4;
 					};
+					77D43AAFA46294148236E501 = {
+						DevelopmentTeam = NQ6AJVVBBJ;
+						ProvisioningStyle = Automatic;
+					};
 					8E38DAE229858FE1B1999CBA = {
 						DevelopmentTeam = NQ6AJVVBBJ;
 						ProvisioningStyle = Automatic;
@@ -247,6 +289,7 @@
 			targets = (
 				F4A3AEF7ABD5FD11246CF3B4 /* PottersStages */,
 				8E38DAE229858FE1B1999CBA /* ShareExtension */,
+				77D43AAFA46294148236E501 /* PottersStagesTests */,
 				5C9E86E202E1D66E5D88FB3B /* PottersStagesUITests */,
 			);
 		};
@@ -269,6 +312,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2331DD71ED76ACCA16999D /* WalkthroughTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A252BD887AF7AFE5F4282859 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB33583CB247F1554A484B24 /* WebLinkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +362,11 @@
 			isa = PBXTargetDependency;
 			target = 8E38DAE229858FE1B1999CBA /* ShareExtension */;
 			targetProxy = BAFE779652F99B9D9DB465FC /* PBXContainerItemProxy */;
+		};
+		319E0CCC7B757EADCE902B82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4A3AEF7ABD5FD11246CF3B4 /* PottersStages */;
+			targetProxy = 604A8884B29CA57202507102 /* PBXContainerItemProxy */;
 		};
 		F9CB0F6D3A27F0FEA7F0FA44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -589,6 +645,40 @@
 			};
 			name = Release;
 		};
+		E1C0460F421E70CD16CA8B14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PottersStages.app/PottersStages";
+			};
+			name = Debug;
+		};
+		F5E42D6DC12B401323D2A800 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PottersStages.app/PottersStages";
+			};
+			name = Release;
+		};
 		FDE57903850A5A03CB1BBCDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -633,6 +723,15 @@
 			buildConfigurations = (
 				FDE57903850A5A03CB1BBCDA /* Debug */,
 				911558412897C5735A0FEDD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C6585C2F0F6FE3022156C768 /* Build configuration list for PBXNativeTarget "PottersStagesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1C0460F421E70CD16CA8B14 /* Debug */,
+				F5E42D6DC12B401323D2A800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

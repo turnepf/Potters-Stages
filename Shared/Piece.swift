@@ -199,12 +199,25 @@ final class Photo {
 }
 
 extension URL {
+    /// True for http and https links, the only kind the app saves or opens. Anything else
+    /// (file://, shortcuts://, tel:…) could open a local file or another app when tapped.
+    var isWebLink: Bool {
+        ["http", "https"].contains(scheme?.lowercased()) && host() != nil
+    }
+
     /// Turns what someone typed ("instagram.com/p/abc") into a usable web link, or nil.
     static func fromUserInput(_ text: String) -> URL? {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return nil }
         let withScheme = trimmed.contains("://") ? trimmed : "https://" + trimmed
-        guard let url = URL(string: withScheme), url.host() != nil else { return nil }
+        guard let url = URL(string: withScheme), url.isWebLink else { return nil }
         return url
+    }
+
+    /// The first web link in some text (some apps share a link inside plain text), or nil.
+    static func firstWebLink(in text: String) -> URL? {
+        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        let range = NSRange(text.startIndex..., in: text)
+        return detector?.matches(in: text, range: range).lazy.compactMap(\.url).first(where: \.isWebLink)
     }
 }

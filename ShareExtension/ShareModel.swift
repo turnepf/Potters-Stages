@@ -93,13 +93,13 @@ final class ShareModel {
                 imageData = await Self.resized(data)
             }
             if url == nil, provider.hasItemConformingToTypeIdentifier(UTType.url.identifier),
-               let sharedURL = await provider.loadURL(), !sharedURL.isFileURL {
+               let sharedURL = await provider.loadURL(), sharedURL.isWebLink {
                 url = sharedURL
             }
             // Some apps share a link inside plain text.
             if url == nil, provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier),
                let text = await provider.loadText() {
-                url = Self.firstLink(in: text)
+                url = URL.firstWebLink(in: text)
             }
         }
 
@@ -122,12 +122,6 @@ final class ShareModel {
 
     private static func resized(_ data: Data) async -> Data {
         await Task.detached { ImageTools.jpeg(from: data, maxPixelSize: 2048) ?? data }.value
-    }
-
-    private static func firstLink(in text: String) -> URL? {
-        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-        let range = NSRange(text.startIndex..., in: text)
-        return detector?.firstMatch(in: text, range: range)?.url
     }
 }
 

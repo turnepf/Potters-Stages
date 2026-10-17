@@ -65,6 +65,17 @@ targets:
         ENABLE_HARDENED_RUNTIME: YES
         SKIP_INSTALL: YES
 
+  PottersStagesTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: PottersStages
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: net.patrickturner.pottersstages.tests
+        GENERATE_INFOPLIST_FILE: YES
+
   PottersStagesUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -84,4 +95,4 @@ schemes:
       targets:
         PottersStages: all
     test:
-      targets: [PottersStagesUITests]
+      targets: [PottersStagesTests, PottersStagesUITests]

@@ -19,7 +19,7 @@ struct PieceDetailView: View {
                 photoStrip
                 stageControls
 
-                if let url = piece.inspirationURL {
+                if let url = piece.inspirationURL, url.isWebLink {
                     // Instagram links open in the Instagram app when it's installed.
                     Link(destination: url) {
                         Label(url.host() ?? url.absoluteString, systemImage: "link")
