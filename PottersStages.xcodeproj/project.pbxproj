@@ -1,0 +1,656 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C93536B9208DB0E6835965E /* NotesImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46311B54DBE4865C1F60689A /* NotesImport.swift */; };
+		29936743B6764E862FDD40A3 /* PieceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D534D90D9C3080F09FECACD /* PieceEditor.swift */; };
+		3AFC0D11BA6CCCF4AE1DE01B /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
+		4182B51210A8A9D73B8082FA /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */; };
+		44B80E14674077F19B849301 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ACD1F52DA15769C94A7201EF /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C34697713F1F5343E21441B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */; };
+		5137CC8BE69F86220836D097 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FED9A96D092EA5AE96211A /* ImageTools.swift */; };
+		5276D53217BA37863CC85CA6 /* PieceGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4DFA08936525DBE0F8F05D /* PieceGrid.swift */; };
+		66731510E884AC18CD2D768A /* PieceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */; };
+		6AEE56C9F4D8602E79EF3C8E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E35C7AE914B6C85988562 /* Store.swift */; };
+		7B6932C611D8BFD20B2D1FE8 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */; };
+		7D52967DDD8D7E409AA7CD4B /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */; };
+		92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */; };
+		9CA4C265CD85CA72F7E13204 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
+		AAE3002EF8AF4850831F0225 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E35C7AE914B6C85988562 /* Store.swift */; };
+		CEB7237274F79744A3E26F35 /* PiecePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */; };
+		D0007E4002C3341F45464D0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6616442D9DB105B96DABC7EA /* HomeView.swift */; };
+		D027958E979FAAB952D9E8E8 /* PottersStagesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8383F27E281915E8619B1F /* PottersStagesApp.swift */; };
+		DBE41A141BB0603735AD55E5 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1205614E812B7DC234DBE /* ShareView.swift */; };
+		E1AA4281B2436618AF6A6D28 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FED9A96D092EA5AE96211A /* ImageTools.swift */; };
+		ECB8F0F596EC96407184BE28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */; };
+		ED2331DD71ED76ACCA16999D /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A034498CE06FD8D61DC5389 /* WalkthroughTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F485B6B31D94DEFD995FBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5AC911E1F49086417693E8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4A3AEF7ABD5FD11246CF3B4;
+			remoteInfo = PottersStages;
+		};
+		BAFE779652F99B9D9DB465FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5AC911E1F49086417693E8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E38DAE229858FE1B1999CBA;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		48EB9470633AAFA9D8A32885 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				44B80E14674077F19B849301 /* ShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		26572CD21889588D1DB5A6DC /* PottersStages.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PottersStages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoButtons.swift; sourceTree = "<group>"; };
+		2D534D90D9C3080F09FECACD /* PieceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEditor.swift; sourceTree = "<group>"; };
+		41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		43C1205614E812B7DC234DBE /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		46311B54DBE4865C1F60689A /* NotesImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesImport.swift; sourceTree = "<group>"; };
+		6616442D9DB105B96DABC7EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecePickerSheet.swift; sourceTree = "<group>"; };
+		88FED9A96D092EA5AE96211A /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
+		8C8383F27E281915E8619B1F /* PottersStagesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PottersStagesApp.swift; sourceTree = "<group>"; };
+		8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		9A034498CE06FD8D61DC5389 /* WalkthroughTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughTests.swift; sourceTree = "<group>"; };
+		A17CFD6FC4F054799D5F5761 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		A8131D4CE4DAC43FB5AFD647 /* PottersStagesUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PottersStagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD1F52DA15769C94A7201EF /* ShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF4DFA08936525DBE0F8F05D /* PieceGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceGrid.swift; sourceTree = "<group>"; };
+		B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModel.swift; sourceTree = "<group>"; };
+		D55E35C7AE914B6C85988562 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceDetailView.swift; sourceTree = "<group>"; };
+		DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		278DFCA3227CA41852D0053F = {
+			isa = PBXGroup;
+			children = (
+				A0E3BEF6A956A0F10760F553 /* App */,
+				3B186FF7B9523090AAFF2668 /* Shared */,
+				AD0D10B98644510AFF14E375 /* ShareExtension */,
+				8FC099514A67DE3DDC961944 /* UITests */,
+				C7DDF35F39F04B6AF66B2FD4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B186FF7B9523090AAFF2668 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				88FED9A96D092EA5AE96211A /* ImageTools.swift */,
+				A17CFD6FC4F054799D5F5761 /* Piece.swift */,
+				8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */,
+				D55E35C7AE914B6C85988562 /* Store.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8FC099514A67DE3DDC961944 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				9A034498CE06FD8D61DC5389 /* WalkthroughTests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		A0E3BEF6A956A0F10760F553 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */,
+				6616442D9DB105B96DABC7EA /* HomeView.swift */,
+				46311B54DBE4865C1F60689A /* NotesImport.swift */,
+				2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */,
+				D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */,
+				2D534D90D9C3080F09FECACD /* PieceEditor.swift */,
+				AF4DFA08936525DBE0F8F05D /* PieceGrid.swift */,
+				76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */,
+				8C8383F27E281915E8619B1F /* PottersStagesApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AD0D10B98644510AFF14E375 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */,
+				43C1205614E812B7DC234DBE /* ShareView.swift */,
+				41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		C7DDF35F39F04B6AF66B2FD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26572CD21889588D1DB5A6DC /* PottersStages.app */,
+				A8131D4CE4DAC43FB5AFD647 /* PottersStagesUITests.xctest */,
+				ACD1F52DA15769C94A7201EF /* ShareExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C9E86E202E1D66E5D88FB3B /* PottersStagesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A641D29CF39A25FC7779289C /* Build configuration list for PBXNativeTarget "PottersStagesUITests" */;
+			buildPhases = (
+				742AECC7760AE9BFF9B20AA2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9CB0F6D3A27F0FEA7F0FA44 /* PBXTargetDependency */,
+			);
+			name = PottersStagesUITests;
+			packageProductDependencies = (
+			);
+			productName = PottersStagesUITests;
+			productReference = A8131D4CE4DAC43FB5AFD647 /* PottersStagesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		8E38DAE229858FE1B1999CBA /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9017387B959242DEF3938B01 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				B4B6D2CD99571E673C95C787 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			packageProductDependencies = (
+			);
+			productName = ShareExtension;
+			productReference = ACD1F52DA15769C94A7201EF /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F4A3AEF7ABD5FD11246CF3B4 /* PottersStages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5576F235230CB55AFE2397 /* Build configuration list for PBXNativeTarget "PottersStages" */;
+			buildPhases = (
+				EC85EC90141F9E3BD744B074 /* Sources */,
+				95F01B95DDABB226D3FDBA51 /* Resources */,
+				48EB9470633AAFA9D8A32885 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10BA100F94ED5B7F4C0DC5B0 /* PBXTargetDependency */,
+			);
+			name = PottersStages;
+			packageProductDependencies = (
+			);
+			productName = PottersStages;
+			productReference = 26572CD21889588D1DB5A6DC /* PottersStages.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5AC911E1F49086417693E8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5C9E86E202E1D66E5D88FB3B = {
+						DevelopmentTeam = NQ6AJVVBBJ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F4A3AEF7ABD5FD11246CF3B4;
+					};
+					8E38DAE229858FE1B1999CBA = {
+						DevelopmentTeam = NQ6AJVVBBJ;
+						ProvisioningStyle = Automatic;
+					};
+					F4A3AEF7ABD5FD11246CF3B4 = {
+						DevelopmentTeam = NQ6AJVVBBJ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 77FC77CF56ABF04881EB731C /* Build configuration list for PBXProject "PottersStages" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 278DFCA3227CA41852D0053F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C7DDF35F39F04B6AF66B2FD4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4A3AEF7ABD5FD11246CF3B4 /* PottersStages */,
+				8E38DAE229858FE1B1999CBA /* ShareExtension */,
+				5C9E86E202E1D66E5D88FB3B /* PottersStagesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95F01B95DDABB226D3FDBA51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB8F0F596EC96407184BE28 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		742AECC7760AE9BFF9B20AA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED2331DD71ED76ACCA16999D /* WalkthroughTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B6D2CD99571E673C95C787 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1AA4281B2436618AF6A6D28 /* ImageTools.swift in Sources */,
+				9CA4C265CD85CA72F7E13204 /* Piece.swift in Sources */,
+				4182B51210A8A9D73B8082FA /* ShareModel.swift in Sources */,
+				DBE41A141BB0603735AD55E5 /* ShareView.swift in Sources */,
+				4C34697713F1F5343E21441B /* ShareViewController.swift in Sources */,
+				7B6932C611D8BFD20B2D1FE8 /* Stage.swift in Sources */,
+				AAE3002EF8AF4850831F0225 /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC85EC90141F9E3BD744B074 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0007E4002C3341F45464D0E /* HomeView.swift in Sources */,
+				5137CC8BE69F86220836D097 /* ImageTools.swift in Sources */,
+				1C93536B9208DB0E6835965E /* NotesImport.swift in Sources */,
+				92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */,
+				3AFC0D11BA6CCCF4AE1DE01B /* Piece.swift in Sources */,
+				66731510E884AC18CD2D768A /* PieceDetailView.swift in Sources */,
+				29936743B6764E862FDD40A3 /* PieceEditor.swift in Sources */,
+				5276D53217BA37863CC85CA6 /* PieceGrid.swift in Sources */,
+				CEB7237274F79744A3E26F35 /* PiecePickerSheet.swift in Sources */,
+				D027958E979FAAB952D9E8E8 /* PottersStagesApp.swift in Sources */,
+				7D52967DDD8D7E409AA7CD4B /* Stage.swift in Sources */,
+				6AEE56C9F4D8602E79EF3C8E /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10BA100F94ED5B7F4C0DC5B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E38DAE229858FE1B1999CBA /* ShareExtension */;
+			targetProxy = BAFE779652F99B9D9DB465FC /* PBXContainerItemProxy */;
+		};
+		F9CB0F6D3A27F0FEA7F0FA44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4A3AEF7ABD5FD11246CF3B4 /* PottersStages */;
+			targetProxy = 5F485B6B31D94DEFD995FBA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		007775424054E897E0261E7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Config/App-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Config/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a piece.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages;
+				PRODUCT_NAME = PottersStages;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1BCDF6E35C45BC467E6ACCE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Config/Share-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Config/Share-macOS.entitlements";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Share-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.ShareExtension;
+				PRODUCT_NAME = ShareExtension;
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2D8DA839CCFBA741D0EF7F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NQ6AJVVBBJ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		7859B02D18FEAFE3C395B438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Config/App-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Config/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a piece.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages;
+				PRODUCT_NAME = PottersStages;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		87D1B57345F4035319F8DD17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Config/Share-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Config/Share-macOS.entitlements";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Share-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.ShareExtension;
+				PRODUCT_NAME = ShareExtension;
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		911558412897C5735A0FEDD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PottersStages;
+			};
+			name = Release;
+		};
+		A502719BB80D2C203D264A26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NQ6AJVVBBJ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		FDE57903850A5A03CB1BBCDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.patrickturner.pottersstages.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PottersStages;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77FC77CF56ABF04881EB731C /* Build configuration list for PBXProject "PottersStages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8DA839CCFBA741D0EF7F9F /* Debug */,
+				A502719BB80D2C203D264A26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9017387B959242DEF3938B01 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87D1B57345F4035319F8DD17 /* Debug */,
+				1BCDF6E35C45BC467E6ACCE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A641D29CF39A25FC7779289C /* Build configuration list for PBXNativeTarget "PottersStagesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE57903850A5A03CB1BBCDA /* Debug */,
+				911558412897C5735A0FEDD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FA5576F235230CB55AFE2397 /* Build configuration list for PBXNativeTarget "PottersStages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7859B02D18FEAFE3C395B438 /* Debug */,
+				007775424054E897E0261E7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5AC911E1F49086417693E8D /* Project object */;
+}
