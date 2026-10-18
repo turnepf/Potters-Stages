@@ -182,6 +182,15 @@ final class Photo {
         self.fingerprint = thumbnail.flatMap(ImageTools.fingerprint(from:))
     }
 
+    /// Restores a photo exactly as it was saved (used by backup import), without re-encoding.
+    init(imageData: Data?, thumbnail: Data?, stageRaw: String, addedAt: Date, fingerprint: String?) {
+        self.imageData = imageData
+        self.thumbnail = thumbnail
+        self.stageRaw = stageRaw
+        self.addedAt = addedAt
+        self.fingerprint = fingerprint
+    }
+
     /// Whether this is the same picture as `otherFingerprint`. Photos saved before
     /// fingerprints existed get one worked out (and kept) the first time they're compared.
     func looksLike(_ otherFingerprint: String) -> Bool {

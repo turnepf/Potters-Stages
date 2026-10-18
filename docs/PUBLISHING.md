@@ -26,10 +26,22 @@ starts with an **empty** Production database and will not show those pieces.
    - Do this again whenever the model in `Shared/Piece.swift` gains fields. Production schemas
      can only be added to, never changed or removed, so plan model changes carefully.
 
-2. **Move the existing pieces from Development to Production.** This needs one-time code
-   that **doesn't exist yet**. A build can only reach one environment, so the likely approach
-   is an Export (to a file) in a development build plus an Import in the production build.
-   Don't delete the app from any device until this is done and checked.
+2. **Move the existing pieces from Development to Production.** Apple has no tool that copies
+   data between the two environments, and a build can only reach one of them, so the app has
+   **More (⋯) → Export Backup… / Import Backup…** in the toolbar. The backup is a single
+   `.plist` file with every piece, its dates, link and full-size photos.
+   1. In the current **development** build on the iPhone, tap **Export Backup…** and save the
+      file to iCloud Drive (e.g. Files → iCloud Drive → Downloads). Check the file's there and
+      looks the right size before going on.
+   2. Delete the development app from the iPhone, so the TestFlight build starts with a clean
+      local database. The pieces are still safe in Development iCloud and in the backup file.
+   3. Install the **TestFlight** build, open it (it'll be empty), tap **Import Backup…** and
+      pick the file. It reports how many pieces and photos it added.
+   4. Check the pieces arrived in Production: install the TestFlight build on the Mac (or
+      another device) and wait for them to sync down.
+   Importing the same file again skips pieces that are already there (same title and created
+   time), so a second try is harmless. A development build installed from Xcode later will
+   still show the old Development copy, not the Production data.
 
 3. **Check the signing entitlements on the archive.** With automatic signing, distribution
    builds should get `aps-environment = production` and the iCloud container environment
