@@ -53,6 +53,17 @@ struct HomeView: View {
     @State private var isAdding = false
 
     var body: some View {
+        // Stacked above (not overlaid on) the content, so it never covers the toolbar.
+        VStack(spacing: 0) {
+            if CloudEnvironment.current == .development {
+                DevelopmentBanner()
+            }
+            layout
+        }
+    }
+
+    @ViewBuilder
+    private var layout: some View {
         #if os(iOS)
         if sizeClass == .compact {
             NavigationStack(path: $path) {
@@ -122,5 +133,22 @@ struct HomeView: View {
     /// The sidebar List needs an optional selection; never let it become empty.
     private var sidebarSelection: Binding<StageFilter?> {
         Binding(get: { filter }, set: { if let new = $0 { filter = new } })
+    }
+}
+
+/// A loud strip on every screen of a build that uses the Development iCloud database, so a
+/// test build is never mistaken for the real collection (which lives in Production).
+struct DevelopmentBanner: View {
+    var body: some View {
+        Label("TEST BUILD · Development iCloud · not your real pieces", systemImage: "exclamationmark.triangle.fill")
+            .font(.footnote.weight(.bold))
+            .foregroundStyle(.white)
+            .lineLimit(2)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 6)
+            .padding(.horizontal, 12)
+            .background(.red)
+            .accessibilityAddTraits(.isHeader)
     }
 }

@@ -16,6 +16,9 @@ nonisolated enum CloudEnvironment: String {
               let value = SecTaskCopyValueForEntitlement(task, "com.apple.developer.icloud-container-environment" as CFString, nil)
         else { return .development }
         return (value as? String) == "Production" ? .production : .development
+        #elseif targetEnvironment(simulator)
+        // Simulator builds always come from Xcode and carry no provisioning profile.
+        return .development
         #else
         // iOS can't read its entitlements, but development signing always embeds a debug profile
         // (get-task-allow), and TestFlight / App Store builds embed none.
