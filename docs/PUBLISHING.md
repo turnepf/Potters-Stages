@@ -12,50 +12,83 @@ Every CloudKit container has **two separate environments**:
 | Builds installed from Xcode / `xcodebuild` (Debug, development signing) | **Development** |
 | TestFlight and App Store builds (distribution signing) | **Production** |
 
-They do not share data. **All of Patrick's real pieces currently live in Development**,
-because every build so far has been a development build. A TestFlight or App Store build
-starts with an **empty** Production database and will not show those pieces.
+They do not share data. Until the move below is done, **Patrick's real pieces live in
+Development**, because every build before 2026-10-18 was a development build.
 
-## Before the first TestFlight / App Store build
+## Going forward: test through TestFlight only
 
-1. **Deploy the schema to Production.**
-   - Open a development build on a device and use every feature once, so the Development
-     schema has every record type and field (`CD_Piece`, `CD_Photo`, including `fingerprint`).
-   - Go to the CloudKit Console (https://icloud.developer.apple.com) → container
-     `iCloud.net.patrickturner.pottersstages` → **Deploy Schema Changes…** → deploy to Production.
-   - Do this again whenever the model in `Shared/Piece.swift` gains fields. Production schemas
-     can only be added to, never changed or removed, so plan model changes carefully.
+From 2026-10-18 Patrick tests with TestFlight builds, so his own phone and Mac use
+**Production**, the same database App Store users will get. Don't install Xcode builds on
+his devices any more: a development build replaces the TestFlight app and switches that
+device back to the old Development data. Use the Simulator for quick checks instead.
 
-2. **Move the existing pieces from Development to Production.** Apple has no tool that copies
-   data between the two environments, and a build can only reach one of them, so the app has
-   **More (⋯) → Export Backup… / Import Backup…** in the toolbar. The backup is a single
-   `.plist` file with every piece, its dates, link and full-size photos.
-   1. In the current **development** build on the iPhone, tap **Export Backup…** and save the
-      file to iCloud Drive (e.g. Files → iCloud Drive → Downloads). Check the file's there and
-      looks the right size before going on.
-   2. Delete the development app from the iPhone, so the TestFlight build starts with a clean
-      local database. The pieces are still safe in Development iCloud and in the backup file.
-   3. Install the **TestFlight** build, open it (it'll be empty), tap **Import Backup…** and
-      pick the file. It reports how many pieces and photos it added.
-   4. Check the pieces arrived in Production: install the TestFlight build on the Mac (or
-      another device) and wait for them to sync down.
-   Importing the same file again skips pieces that are already there (same title and created
-   time), so a second try is harmless. A development build installed from Xcode later will
-   still show the old Development copy, not the Production data.
+## Status (2026-10-18)
 
-3. **Check the signing entitlements on the archive.** With automatic signing, distribution
-   builds should get `aps-environment = production` and the iCloud container environment
-   set to Production. Confirm with
-   `codesign -d --entitlements - <PottersStages.app>` on the exported app.
+- [x] App Store Connect record "Potter's Stages" (iOS + macOS), SKU `pottersstages01`.
+- [x] CloudKit schema deployed to Production (`CD_Piece`, `CD_Photo`, `Users`).
+- [x] Build 1.0 (1), iOS, uploaded. Entitlements checked: `aps-environment = production`,
+      iCloud container environment `Production`, in the app and the share extension.
+- [x] TestFlight internal group **Internal** with Patrick, automatic distribution on, so
+      every new upload reaches him without extra clicks.
+- [ ] Move the pieces from Development to Production (below).
+- [ ] macOS TestFlight build (needs its own archive; only iOS has been uploaded).
 
-4. **App Store Connect basics.** The app collects no data and has no server, so the privacy
-   label is "Data Not Collected". Add a privacy manifest (`PrivacyInfo.xcprivacy`) if Xcode's
-   archive validation asks for one.
+## Moving the pieces from Development to Production
 
-## Things that are safe today
+Apple has no tool that copies data between the two environments, and a build can only reach
+one of them, so the app has **More (⋯) → Export Backup… / Import Backup…** in the toolbar.
+The backup is a single `.plist` file with every piece, its dates, link and full-size photos.
 
-- Deleting and reinstalling the **development** build: data comes back from iCloud
-  (tested 2026-10-17: a fresh Mac install pulled down 56 pieces and 74 photos).
+1. In the current **development** build on the iPhone, tap **Export Backup…** and save the
+   file to iCloud Drive (e.g. Files → iCloud Drive → Downloads). Check the file's there and
+   looks the right size before going on.
+2. Delete the development app from the iPhone, so the TestFlight build starts with a clean
+   local database. The pieces are still safe in Development iCloud and in the backup file.
+3. Install the **TestFlight** build, open it (it'll be empty), tap **Import Backup…** and
+   pick the file. It reports how many pieces and photos it added.
+4. Check the pieces arrived in Production: open the TestFlight build on another device and
+   wait for them to sync down.
+
+Importing the same file again skips pieces that are already there (same title and created
+time), so a second try is harmless.
+
+## Shipping a new TestFlight build
+
+1. Bump `CURRENT_PROJECT_VERSION` in `project.yml` (App Store Connect rejects a repeated
+   build number for the same version), then `xcodegen generate`.
+2. If `Shared/Piece.swift` gained fields, run a development build in the Simulator once so
+   the Development schema picks them up, then CloudKit Console → container → **Deploy Schema
+   Changes…** *before* uploading. Production schemas can only be added to, never changed or
+   removed, so plan model changes carefully. (The link is in the sidebar, which hides behind
+   **‹ Menu** in a narrow window. Never click **Reset Environment…** next to it.)
+3. Archive and upload with the Admin App Store Connect API key in
+   `~/.appstoreconnect/private_keys/` (Xcode isn't signed in to an Apple account on this Mac;
+   the older non-Admin key can't do cloud signing):
+
+   ```bash
+   xcodebuild archive -project PottersStages.xcodeproj -scheme PottersStages \
+     -destination 'generic/platform=iOS' -archivePath build/PottersStages.xcarchive \
+     -allowProvisioningUpdates <api-key flags>
+   xcodebuild -exportArchive -archivePath build/PottersStages.xcarchive \
+     -exportPath build/upload -exportOptionsPlist <options.plist> \
+     -allowProvisioningUpdates <api-key flags>
+   ```
+
+   The API-key flags are `-authenticationKeyPath`, `-authenticationKeyID` and
+   `-authenticationKeyIssuerID`. The options plist sets `method` = `app-store-connect`,
+   `destination` = `upload`, `teamID` = `NQ6AJVVBBJ`, `signingStyle` = `automatic`.
+4. Processing takes 10–30 minutes; the build then shows up in the TestFlight app.
+
+## App Store review basics
+
+The app collects no data and has no server, so the privacy label is "Data Not Collected".
+`Shared/PrivacyInfo.xcprivacy` declares no tracking and no required-reason APIs, and
+`ITSAppUsesNonExemptEncryption = NO` answers the export-compliance question for every build.
+
+## Things that are safe
+
+- Deleting and reinstalling a build: data comes back from iCloud (tested 2026-10-17 on
+  Development: a fresh Mac install pulled down 56 pieces and 74 photos).
 - Development data isn't reset automatically. It's only erased if someone clicks
-  **Reset Development Environment** in the CloudKit Console, so **never click that** while
-  the real pieces still live there.
+  **Reset Environment…** in the CloudKit Console, so **never click that** while the real
+  pieces still live there.

@@ -19,8 +19,10 @@
 		6AEE56C9F4D8602E79EF3C8E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E35C7AE914B6C85988562 /* Store.swift */; };
 		7B6932C611D8BFD20B2D1FE8 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */; };
 		7D52967DDD8D7E409AA7CD4B /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */; };
+		8C6563264EDDDA4CA79E6889 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3836B36C2D04D16E6E347880 /* PrivacyInfo.xcprivacy */; };
 		92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */; };
 		9CA4C265CD85CA72F7E13204 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
+		A6E9E5F60191B50AE5F75035 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3836B36C2D04D16E6E347880 /* PrivacyInfo.xcprivacy */; };
 		AAE3002EF8AF4850831F0225 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E35C7AE914B6C85988562 /* Store.swift */; };
 		BB33583CB247F1554A484B24 /* WebLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB0415B2F1E6C103CDAF3B /* WebLinkTests.swift */; };
 		CEB7237274F79744A3E26F35 /* PiecePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */; };
@@ -77,6 +79,7 @@
 		26572CD21889588D1DB5A6DC /* PottersStages.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PottersStages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoButtons.swift; sourceTree = "<group>"; };
 		2D534D90D9C3080F09FECACD /* PieceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEditor.swift; sourceTree = "<group>"; };
+		3836B36C2D04D16E6E347880 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		43C1205614E812B7DC234DBE /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		6616442D9DB105B96DABC7EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 			children = (
 				88FED9A96D092EA5AE96211A /* ImageTools.swift */,
 				A17CFD6FC4F054799D5F5761 /* Piece.swift */,
+				3836B36C2D04D16E6E347880 /* PrivacyInfo.xcprivacy */,
 				8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */,
 				D55E35C7AE914B6C85988562 /* Store.swift */,
 			);
@@ -219,6 +223,7 @@
 			buildConfigurationList = 9017387B959242DEF3938B01 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
 				B4B6D2CD99571E673C95C787 /* Sources */,
+				30296594E4DC6D9CD8229059 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -302,11 +307,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		30296594E4DC6D9CD8229059 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C6563264EDDDA4CA79E6889 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95F01B95DDABB226D3FDBA51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ECB8F0F596EC96407184BE28 /* Assets.xcassets in Resources */,
+				A6E9E5F60191B50AE5F75035 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +409,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a piece.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -524,6 +539,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Potter's Stages";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a piece.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
