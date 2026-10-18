@@ -22,11 +22,7 @@ struct PieceGrid: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityIdentifier("pieceCell")
-                            .contextMenu {
-                                Button("Delete", systemImage: "trash", role: .destructive) {
-                                    pieceToDelete = piece
-                                }
-                            }
+                            .contextMenu { pieceMenu(for: piece) }
                         }
                     } header: {
                         if sections.count > 1 {
@@ -56,6 +52,29 @@ struct PieceGrid: View {
         }
         .deleteConfirmation(for: $pieceToDelete) { piece in
             context.delete(piece)
+        }
+    }
+
+    /// Long-press menu on a piece: move it to the next stage or any other, or delete it.
+    @ViewBuilder
+    private func pieceMenu(for piece: Piece) -> some View {
+        if let next = piece.stage.next {
+            Button("Advance to \(next.name)", systemImage: "arrow.right.circle") {
+                withAnimation { piece.stage = next }
+            }
+        }
+        Picker("Move To", systemImage: "arrow.right.square", selection: Binding(
+            get: { piece.stage },
+            set: { newStage in withAnimation { piece.stage = newStage } }
+        )) {
+            ForEach(Stage.allCases) { stage in
+                Label(stage.name, systemImage: stage.symbol).tag(stage)
+            }
+        }
+        .pickerStyle(.menu)
+
+        Button("Delete", systemImage: "trash", role: .destructive) {
+            pieceToDelete = piece
         }
     }
 
