@@ -86,6 +86,30 @@ time), so a second try is harmless.
    `destination` = `upload`, `teamID` = `NQ6AJVVBBJ`, `signingStyle` = `automatic`.
 4. Processing takes 10–30 minutes; the build then shows up in the TestFlight app.
 
+## Updating App Store screenshots
+
+The 1.0 screenshots show Patrick's real pieces. Two simulators are kept for this, set to
+App Store sizes; find them with `xcrun simctl list devices | grep Shots`:
+
+| Simulator | Screenshot size | App Store slot |
+|---|---|---|
+| Shots iPhone 17 Pro Max (iOS 27.0) | 1320×2868 | iPhone 6.9″ |
+| Shots iPad Pro 13 (iOS 27.0) | 2064×2752 | iPad 13″ |
+
+1. Patrick exports a backup from the TestFlight app (⋯ → Export Backup…) and AirDrops it here.
+2. Build the Debug app for the simulator, install it on both, and launch with
+   `xcrun simctl launch <sim> net.patrickturner.pottersstages -screenshotBackup <backup file>`.
+   Screenshot mode (Debug builds only) shows that backup from an in-memory store, with no
+   iCloud and no Development banner. `xcrun simctl status_bar <sim> override --time 9:41
+   --batteryState charged --batteryLevel 100` gives a clean status bar.
+3. Capture with `xcrun simctl io <sim> screenshot <file>.png`. Leave out the Ideas tab: its
+   saved posts are other people's content.
+4. **Mac (1280×800):** make a separate copy of the Debug Mac build so the real Mac app is
+   never touched. Change its `CFBundleIdentifier` to `net.patrickturner.pottersstages.screenshots`,
+   delete `Contents/PlugIns`, run `codesign --force --deep -s -` on it, and launch it with the same
+   `-screenshotBackup` argument. It opens at 1440×900. Capture the window and scale it to 1280×800.
+5. Upload in App Store Connect (or through the API): iPhone 6.9″, iPad 13″ and Mac sets.
+
 ## App Store review basics
 
 The app collects no data and has no server, so the privacy label is "Data Not Collected".
