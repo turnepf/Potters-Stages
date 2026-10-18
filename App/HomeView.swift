@@ -55,7 +55,7 @@ struct HomeView: View {
     var body: some View {
         // Stacked above (not overlaid on) the content, so it never covers the toolbar.
         VStack(spacing: 0) {
-            if CloudEnvironment.current == .development {
+            if CloudEnvironment.current == .development && !ScreenshotMode.isOn {
                 DevelopmentBanner()
             }
             layout
