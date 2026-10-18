@@ -158,12 +158,14 @@ nonisolated struct BackupFile: FileDocument {
     }
 }
 
-/// Adds a "More" toolbar menu with Export Backup and Import Backup.
-struct BackupCommands: ViewModifier {
+/// Adds a "More" toolbar menu: which iCloud database this build uses, a sync check,
+/// and Export Backup / Import Backup.
+struct MoreMenu: ViewModifier {
     @Environment(\.modelContext) private var context
     @State private var exportFile: BackupFile?
     @State private var isExporting = false
     @State private var isImporting = false
+    @State private var isCheckingSync = false
     @State private var message: (title: String, body: String)?
 
     func body(content: Content) -> some View {
@@ -171,6 +173,12 @@ struct BackupCommands: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Menu("More", systemImage: "ellipsis.circle") {
+                        Section("iCloud: \(CloudEnvironment.current.rawValue)") {
+                            Button(isCheckingSync ? "Checking iCloud…" : "Check iCloud Sync", systemImage: "icloud") {
+                                Task { await checkSync() }
+                            }
+                            .disabled(isCheckingSync)
+                        }
                         Button("Export Backup…", systemImage: "square.and.arrow.up", action: export)
                         Button("Import Backup…", systemImage: "square.and.arrow.down") { isImporting = true }
                     }
@@ -201,6 +209,17 @@ struct BackupCommands: ViewModifier {
             } message: {
                 Text(message?.body ?? "")
             }
+    }
+
+    private func checkSync() async {
+        isCheckingSync = true
+        defer { isCheckingSync = false }
+        let title = "iCloud: \(CloudEnvironment.current.rawValue)"
+        do {
+            message = (title, try await SyncCounts.check(context).summary)
+        } catch {
+            message = (title, "Couldn't reach iCloud: \(error.localizedDescription)")
+        }
     }
 
     private func export() {

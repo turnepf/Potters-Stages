@@ -46,8 +46,15 @@ The backup is a single `.plist` file with every piece, its dates, link and full-
    local database. The pieces are still safe in Development iCloud and in the backup file.
 3. Install the **TestFlight** build, open it (it'll be empty), tap **Import Backup…** and
    pick the file. It reports how many pieces and photos it added.
-4. Check the pieces arrived in Production: open the TestFlight build on another device and
-   wait for them to sync down.
+4. Check the pieces arrived in Production: **More (⋯)** shows which database the build uses
+   ("iCloud: Production" in TestFlight), and **Check iCloud Sync** compares the number of
+   pieces and photos in that iCloud database with the ones on the device. When they match,
+   everything has uploaded.
+
+A TestFlight build installed over the old development app keeps the old app's local copy,
+so pieces can show on the phone without being in Production. **Check iCloud Sync** tells
+the two apart; if iCloud shows fewer, export a backup, delete and reinstall the app, and
+import the backup.
 
 Importing the same file again skips pieces that are already there (same title and created
 time), so a second try is harmless.

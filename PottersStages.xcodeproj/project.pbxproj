@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2540B74DF77A440156AF7B96 /* CloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A912F17A0FEC874D86142E9 /* CloudStatus.swift */; };
 		29936743B6764E862FDD40A3 /* PieceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D534D90D9C3080F09FECACD /* PieceEditor.swift */; };
 		3AFC0D11BA6CCCF4AE1DE01B /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFD6FC4F054799D5F5761 /* Piece.swift */; };
 		4182B51210A8A9D73B8082FA /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059DBA0B6B52A79B8E05FF3 /* ShareModel.swift */; };
@@ -30,6 +31,7 @@
 		D027958E979FAAB952D9E8E8 /* PottersStagesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8383F27E281915E8619B1F /* PottersStagesApp.swift */; };
 		D4AADA21828B4AEE6105721F /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E900EFD421ACED47AF5ECB /* Backup.swift */; };
 		DBE41A141BB0603735AD55E5 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1205614E812B7DC234DBE /* ShareView.swift */; };
+		DE6D7A7EB9FEC88A515BF173 /* CloudStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740081CE685698ADB24CC9E /* CloudStatusTests.swift */; };
 		E1AA4281B2436618AF6A6D28 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FED9A96D092EA5AE96211A /* ImageTools.swift */; };
 		ECB8F0F596EC96407184BE28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */; };
 		ED2331DD71ED76ACCA16999D /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A034498CE06FD8D61DC5389 /* WalkthroughTests.swift */; };
@@ -82,8 +84,10 @@
 		3836B36C2D04D16E6E347880 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		41F8BBFC656609D6ECED77B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		43C1205614E812B7DC234DBE /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		5A912F17A0FEC874D86142E9 /* CloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudStatus.swift; sourceTree = "<group>"; };
 		6616442D9DB105B96DABC7EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		76CCFBA3CC52F6461099B51D /* PiecePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecePickerSheet.swift; sourceTree = "<group>"; };
+		7740081CE685698ADB24CC9E /* CloudStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudStatusTests.swift; sourceTree = "<group>"; };
 		88FED9A96D092EA5AE96211A /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		8C8383F27E281915E8619B1F /* PottersStagesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PottersStagesApp.swift; sourceTree = "<group>"; };
 		8DB0BBBAE4A53731EB9CDDE4 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				DF7D61EA9ED2B85149B38F1E /* Assets.xcassets */,
 				15E900EFD421ACED47AF5ECB /* Backup.swift */,
+				5A912F17A0FEC874D86142E9 /* CloudStatus.swift */,
 				6616442D9DB105B96DABC7EA /* HomeView.swift */,
 				2C96C4A02040A8BB89085D71 /* PhotoButtons.swift */,
 				D6FA9DFFA746579C4142F536 /* PieceDetailView.swift */,
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				94F0A87C3A3CB0DAB48A87F7 /* BackupTests.swift */,
+				7740081CE685698ADB24CC9E /* CloudStatusTests.swift */,
 				BAEB0415B2F1E6C103CDAF3B /* WebLinkTests.swift */,
 			);
 			path = Tests;
@@ -340,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5593CFBE0B74DE6C67222F6E /* BackupTests.swift in Sources */,
+				DE6D7A7EB9FEC88A515BF173 /* CloudStatusTests.swift in Sources */,
 				BB33583CB247F1554A484B24 /* WebLinkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AADA21828B4AEE6105721F /* Backup.swift in Sources */,
+				2540B74DF77A440156AF7B96 /* CloudStatus.swift in Sources */,
 				D0007E4002C3341F45464D0E /* HomeView.swift in Sources */,
 				5137CC8BE69F86220836D097 /* ImageTools.swift in Sources */,
 				92DC0A43488EC654A1324EBE /* PhotoButtons.swift in Sources */,
@@ -492,7 +500,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NQ6AJVVBBJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -640,7 +648,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NQ6AJVVBBJ;
 				ENABLE_NS_ASSERTIONS = NO;

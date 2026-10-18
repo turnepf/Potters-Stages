@@ -112,7 +112,7 @@ struct HomeView: View {
                         .keyboardShortcut("n")
                 }
             }
-            .modifier(BackupCommands())
+            .modifier(MoreMenu())
             .sheet(isPresented: $isAdding) {
                 PieceEditor(piece: nil)
             }
