@@ -22,7 +22,7 @@ asks for it. Don't install Xcode builds on his devices: a development build repl
 installed app and switches that device to the separate Development data. Use the Simulator
 for quick checks instead.
 
-## Status (2026-10-18)
+## Status (2026-10-21)
 
 - [x] App Store Connect record "Potter's Stages" (iOS + macOS), SKU `pottersstages01`.
 - [x] CloudKit schema deployed to Production (`CD_Piece`, `CD_Photo`, `Users`).
@@ -32,6 +32,9 @@ for quick checks instead.
       distribution off, so uploads don't reach TestFlight unless a build is added by hand.
       (The API can't turn that setting on or off, and Apple won't remove a build from a
       group while it's on. The group had to be deleted and recreated.)
+- [x] iOS 1.0.1 (build 4), the Idea-photo link changes, approved by App Review 2026-10-21
+      and live at https://apps.apple.com/app/potters-stages/id6824291888 (Apple says it can
+      take up to 24 hours to show up).
 - [ ] Move the pieces from Development to Production (below).
 - [ ] macOS TestFlight build (needs its own archive; only iOS has been uploaded).
 
