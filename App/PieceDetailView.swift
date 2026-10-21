@@ -19,7 +19,7 @@ struct PieceDetailView: View {
                 photoStrip
                 stageControls
 
-                if let url = piece.inspirationURL, url.isWebLink {
+                if let url = inspirationLink {
                     // Instagram links open in the Instagram app when it's installed.
                     Link(destination: url) {
                         Label(url.host() ?? url.absoluteString, systemImage: "link")
@@ -87,19 +87,29 @@ struct PieceDetailView: View {
         }
     }
 
+    /// The piece's inspiration link, if it's one the app will open.
+    private var inspirationLink: URL? {
+        piece.inspirationURL.flatMap { $0.isWebLink ? $0 : nil }
+    }
+
     /// All photos side by side, newest on the right (shown first). Swipe to see earlier stages.
+    /// Tapping an Idea photo (usually a screenshot of the post) opens the inspiration link.
     private var photoStrip: some View {
         VStack(spacing: 12) {
             let photos = piece.sortedPhotos
             if photos.isEmpty {
-                PhotoTile(data: nil, stage: piece.stage, hasLink: piece.inspirationURL != nil)
-                    .frame(height: 220)
-                    .clipShape(.rect(cornerRadius: 16))
+                OptionalLink(destination: inspirationLink) {
+                    PhotoTile(data: nil, stage: piece.stage, hasLink: piece.inspirationURL != nil)
+                        .frame(height: 220)
+                        .clipShape(.rect(cornerRadius: 16))
+                }
             } else {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 12) {
                         ForEach(Array(photos.enumerated()), id: \.element.id) { index, photo in
-                            PhotoPage(photo: photo, position: photos.count > 1 ? "\(index + 1) of \(photos.count)" : nil)
+                            PhotoPage(photo: photo,
+                                      position: photos.count > 1 ? "\(index + 1) of \(photos.count)" : nil,
+                                      link: photo.stage == .idea ? inspirationLink : nil)
                                 .containerRelativeFrame(.horizontal)
                                 .contextMenu { photoMenu(for: photo) }
                         }
@@ -209,16 +219,20 @@ private struct PhotoPage: View {
     let photo: Photo
     /// "2 of 3" when the piece has several photos.
     let position: String?
+    /// Where tapping the photo goes, if anywhere.
+    let link: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if let image = Image(photoData: photo.imageData) {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, maxHeight: 480)
-                    .clipShape(.rect(cornerRadius: 16))
-                    .accessibilityIdentifier("piecePhoto")
+                OptionalLink(destination: link) {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity, maxHeight: 480)
+                        .clipShape(.rect(cornerRadius: 16))
+                        .accessibilityIdentifier("piecePhoto")
+                }
             }
             HStack {
                 StageTag(stage: photo.stage)
@@ -232,6 +246,21 @@ private struct PhotoPage: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+        }
+    }
+}
+
+/// Wraps its content in a link when there's somewhere to go, and leaves it alone otherwise.
+private struct OptionalLink<Content: View>: View {
+    let destination: URL?
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        if let destination {
+            Link(destination: destination) { content }
+                .buttonStyle(.plain)
+        } else {
+            content
         }
     }
 }
