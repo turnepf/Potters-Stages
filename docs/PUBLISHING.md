@@ -15,12 +15,12 @@ Every CloudKit container has **two separate environments**:
 They do not share data. Until the move below is done, **Patrick's real pieces live in
 Development**, because every build before 2026-10-18 was a development build.
 
-## Going forward: test through TestFlight only
+## Going forward: straight to the App Store
 
-From 2026-10-18 Patrick tests with TestFlight builds, so his own phone and Mac use
-**Production**, the same database App Store users will get. Don't install Xcode builds on
-his devices any more: a development build replaces the TestFlight app and switches that
-device back to the old Development data. Use the Simulator for quick checks instead.
+From 2026-10-21 new builds go straight to the App Store. TestFlight is only used when Patrick
+asks for it. Don't install Xcode builds on his devices: a development build replaces the
+installed app and switches that device to the separate Development data. Use the Simulator
+for quick checks instead.
 
 ## Status (2026-10-18)
 
@@ -28,8 +28,10 @@ device back to the old Development data. Use the Simulator for quick checks inst
 - [x] CloudKit schema deployed to Production (`CD_Piece`, `CD_Photo`, `Users`).
 - [x] Build 1.0 (1), iOS, uploaded. Entitlements checked: `aps-environment = production`,
       iCloud container environment `Production`, in the app and the share extension.
-- [x] TestFlight internal group **Internal** with Patrick, automatic distribution on, so
-      every new upload reaches him without extra clicks.
+- [x] TestFlight internal group **Internal** with Patrick. Since 2026-10-21 it has automatic
+      distribution off, so uploads don't reach TestFlight unless a build is added by hand.
+      (The API can't turn that setting on or off, and Apple won't remove a build from a
+      group while it's on. The group had to be deleted and recreated.)
 - [ ] Move the pieces from Development to Production (below).
 - [ ] macOS TestFlight build (needs its own archive; only iOS has been uploaded).
 
@@ -59,9 +61,10 @@ import the backup.
 Importing the same file again skips pieces that are already there (same title and created
 time), so a second try is harmless.
 
-## Shipping a new TestFlight build
+## Shipping a new build
 
-1. Bump `CURRENT_PROJECT_VERSION` in `project.yml` (App Store Connect rejects a repeated
+1. For an App Store update, bump `MARKETING_VERSION` (e.g. 1.0.1). Always bump
+   `CURRENT_PROJECT_VERSION` in `project.yml` (App Store Connect rejects a repeated
    build number for the same version), then `xcodegen generate`.
 2. If `Shared/Piece.swift` gained fields, run a development build in the Simulator once so
    the Development schema picks them up, then CloudKit Console → container → **Deploy Schema
@@ -84,7 +87,11 @@ time), so a second try is harmless.
    The API-key flags are `-authenticationKeyPath`, `-authenticationKeyID` and
    `-authenticationKeyIssuerID`. The options plist sets `method` = `app-store-connect`,
    `destination` = `upload`, `teamID` = `NQ6AJVVBBJ`, `signingStyle` = `automatic`.
-4. Processing takes 10–30 minutes; the build then shows up in the TestFlight app.
+   Archive and upload `generic/platform=macOS` the same way: each platform is its own build.
+4. Processing takes 10–30 minutes. Then, in App Store Connect (or the API), create the new
+   App Store version for each platform, add the "What's New" text, attach the build and
+   submit it for review. A platform can't get a new version while its previous one is still
+   in review.
 
 ## Updating App Store screenshots
 
