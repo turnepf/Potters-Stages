@@ -19,14 +19,6 @@ struct PieceDetailView: View {
                 photoStrip
                 stageControls
 
-                if let url = inspirationLink {
-                    // Instagram links open in the Instagram app when it's installed.
-                    Link(destination: url) {
-                        Label(url.host() ?? url.absoluteString, systemImage: "link")
-                            .frame(minHeight: 44)
-                    }
-                }
-
                 if !piece.notes.isEmpty {
                     Text(piece.notes)
                         .textSelection(.enabled)
@@ -119,6 +111,14 @@ struct PieceDetailView: View {
                 .scrollTargetBehavior(.viewAligned)
                 .scrollIndicators(photos.count > 1 ? .visible : .hidden)
                 .defaultScrollAnchor(.trailing)
+            }
+
+            if let url = inspirationLink {
+                // Instagram links open in the Instagram app when it's installed.
+                Link(destination: url) {
+                    Label(url.host() ?? url.absoluteString, systemImage: "link")
+                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                }
             }
 
             // New photos are tagged with the piece's current stage.
