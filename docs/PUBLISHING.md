@@ -33,7 +33,8 @@ for quick checks instead.
       (The API can't turn that setting on or off, and Apple won't remove a build from a
       group while it's on. The group had to be deleted and recreated.)
 - [ ] Move the pieces from Development to Production (below).
-- [ ] macOS TestFlight build (needs its own archive; only iOS has been uploaded).
+- [x] macOS 1.0 submitted 2026-10-18 and approved for the App Store:
+      <https://apps.apple.com/app/potters-stages/id6824291888> (Apple ID `6824291888`).
 
 ## Moving the pieces from Development to Production
 
