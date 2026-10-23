@@ -12,8 +12,8 @@ Every CloudKit container has **two separate environments**:
 | Builds installed from Xcode / `xcodebuild` (Debug, development signing) | **Development** |
 | TestFlight and App Store builds (distribution signing) | **Production** |
 
-They do not share data. Until the move below is done, **Patrick's real pieces live in
-Development**, because every build before 2026-10-18 was a development build.
+They do not share data. Every build before 2026-10-18 was a development build, so Patrick's
+pieces started in Development; they have since been moved to Production (below).
 
 ## Going forward: straight to the App Store
 
@@ -32,8 +32,10 @@ for quick checks instead.
       distribution off, so uploads don't reach TestFlight unless a build is added by hand.
       (The API can't turn that setting on or off, and Apple won't remove a build from a
       group while it's on. The group had to be deleted and recreated.)
-- [ ] Move the pieces from Development to Production (below).
-- [ ] macOS TestFlight build (needs its own archive; only iOS has been uploaded).
+- [x] Move the pieces from Development to Production (below). Done: all of Patrick's pieces
+      are in Production.
+- [x] macOS 1.0 submitted 2026-10-18 and approved for the App Store:
+      <https://apps.apple.com/app/potters-stages/id6824291888> (Apple ID `6824291888`).
 
 ## Moving the pieces from Development to Production
 

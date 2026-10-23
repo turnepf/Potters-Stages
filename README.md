@@ -4,8 +4,10 @@ A simple native app (iPhone, iPad, Mac) for tracking pottery pieces through
 Idea → Leather Hard → Greenware → Bisqueware → Finished. Data is stored with SwiftData
 and syncs through the user's private iCloud (CloudKit). There's no server.
 
+On the App Store: <https://apps.apple.com/app/potters-stages/id6824291888>
+
 > **Before publishing to TestFlight or the App Store, read [docs/PUBLISHING.md](docs/PUBLISHING.md).**
-> Development and production iCloud are separate databases, and all current data is in development.
+> Development and production iCloud are separate databases; the real data is in production.
 
 ## Building
 
