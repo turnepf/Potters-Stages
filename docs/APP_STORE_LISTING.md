@@ -47,3 +47,11 @@ No accounts, no ads, no tracking. Your pieces and photos stay in your own iCloud
 ## Notes for App Review
 
 No sign-in is needed. Pieces and photos are stored on the device and in the user's private iCloud (CloudKit); there is no server. To try it: tap + to add a piece, add a photo, then touch and hold the piece in the grid to advance it to the next stage. The ⋯ menu has Check iCloud Sync and Export/Import Backup. The share extension appears as "Potter's Stages" in the share sheet of Photos and Safari.
+
+## Custom product pages
+
+**iPhone Duo** (created 2026-10-25): https://apps.apple.com/us/app/potters-stages/id6824291888?ppid=7022352f-aa2d-4d94-9a02-8cdfd3bee66d
+
+- Promotional text: Fold it open and see every piece on the shelf at once: what's drying, what's waiting on a firing, and what's ready to glaze.
+- Screenshots: `docs/screenshots/duo/` (outer display, 1398×2034, App Store type `APP_IPHONE_DUO`), plus the main listing's iPhone 6.9″ and iPad 13″ sets, which Apple requires on every custom product page.
+- Submitted for review 2026-10-25.

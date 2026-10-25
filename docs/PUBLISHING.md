@@ -104,6 +104,7 @@ App Store sizes; find them with `xcrun simctl list devices | grep Shots`:
 |---|---|---|
 | Shots iPhone 17 Pro Max (iOS 27.0) | 1320×2868 | iPhone 6.9″ |
 | Shots iPad Pro 13 (iOS 27.0) | 2064×2752 | iPad 13″ |
+| iPhone Duo (iOS 27.1) | 1398×2034 (outer display) | iPhone Duo custom product page |
 
 1. Patrick exports a backup from the TestFlight app (⋯ → Export Backup…) and AirDrops it here.
 2. Build the Debug app for the simulator, install it on both, and launch with
@@ -118,6 +119,11 @@ App Store sizes; find them with `xcrun simctl list devices | grep Shots`:
    delete `Contents/PlugIns`, run `codesign --force --deep -s -` on it, and launch it with the same
    `-screenshotBackup` argument. It opens at 1440×900. Capture the window and scale it to 1280×800.
 5. Upload in App Store Connect (or through the API): iPhone 6.9″, iPad 13″ and Mac sets.
+6. **iPhone Duo:** the simulator boots folded, so only the outer display (1398×2034) shows the
+   app; capture it with `xcrun simctl io <sim> screenshot --display=1 <file>.png`. There's no
+   simctl command to unfold it, so there are no inner-display (2007×2853) shots yet. Simulator
+   PNGs have an alpha channel, which App Store Connect rejects: round-trip each one through JPEG
+   with `sips` to drop it. The API type is `APP_IPHONE_DUO`.
 
 ## App Store review basics
 
