@@ -55,3 +55,12 @@ No sign-in is needed. Pieces and photos are stored on the device and in the user
 - Promotional text: Fold it open and see every piece on the shelf at once: what's drying, what's waiting on a firing, and what's ready to glaze.
 - Screenshots: `docs/screenshots/duo/` (outer display, 1398×2034, App Store type `APP_IPHONE_DUO`), plus the main listing's iPhone 6.9″ and iPad 13″ sets, which Apple requires on every custom product page.
 - Submitted for review 2026-10-25.
+
+## 1.0.2 (build 5)
+
+iOS only, to put the iPhone Duo screenshots on the main listing: Apple locks screenshots on a
+live version, and only a listing with Duo screenshots gets the "optimized for iPhone Duo"
+badge. No code changes from 1.0.1. Built with Xcode 27.1 (iOS 27.1 SDK). The Mac stays on 1.0.1.
+
+- What's New: `docs/whats-new-1.0.2.txt`
+- Screenshots: the 1.0.1 sets carry over, plus `docs/screenshots/duo/` as `APP_IPHONE_DUO`.
