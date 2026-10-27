@@ -22,7 +22,7 @@ asks for it. Don't install Xcode builds on his devices: a development build repl
 installed app and switches that device to the separate Development data. Use the Simulator
 for quick checks instead.
 
-## Status (2026-10-18)
+## Status (2026-10-25)
 
 - [x] App Store Connect record "Potter's Stages" (iOS + macOS), SKU `pottersstages01`.
 - [x] CloudKit schema deployed to Production (`CD_Piece`, `CD_Photo`, `Users`).
@@ -36,6 +36,10 @@ for quick checks instead.
       are in Production.
 - [x] macOS 1.0 submitted 2026-10-18 and approved for the App Store:
       <https://apps.apple.com/app/potters-stages/id6824291888> (Apple ID `6824291888`).
+- [x] iOS 1.0.1 (build 4), the Idea-photo link changes, approved by App Review 2026-10-21.
+- [x] iOS 1.0.2 (build 5), the iPhone Duo screenshots on the main listing, submitted and
+      approved 2026-10-25 (submission `8f996bf2-f733-4104-a01c-e5e1ec09c783`). Apple says it
+      can take up to 24 hours to show up on the store.
 
 ## Moving the pieces from Development to Production
 
