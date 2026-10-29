@@ -54,7 +54,7 @@ No sign-in is needed. Pieces and photos are stored on the device and in the user
 
 - Promotional text: Fold it open and see every piece on the shelf at once: what's drying, what's waiting on a firing, and what's ready to glaze.
 - Screenshots: `docs/screenshots/duo/` (outer display, 1398×2034, App Store type `APP_IPHONE_DUO`), plus the main listing's iPhone 6.9″ and iPad 13″ sets, which Apple requires on every custom product page.
-- Submitted for review 2026-10-25.
+- Submitted for review 2026-10-25 and approved (submission `bb86618c-facd-4474-945a-7b687c361074`).
 
 ## 1.0.2 (build 5)
 

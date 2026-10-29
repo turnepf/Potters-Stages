@@ -40,6 +40,10 @@ for quick checks instead.
 - [x] iOS 1.0.2 (build 5), the iPhone Duo screenshots on the main listing, submitted and
       approved 2026-10-25 (submission `8f996bf2-f733-4104-a01c-e5e1ec09c783`). Apple says it
       can take up to 24 hours to show up on the store.
+- [x] iPhone Duo custom product page, submitted 2026-10-25 and approved (submission
+      `bb86618c-facd-4474-945a-7b687c361074`). The ID Apple's email lists for it,
+      `f6761898-05ab-4d0a-8bd4-b18846a8b131`, is not the `ppid` the link uses
+      (`7022352f-aa2d-4d94-9a02-8cdfd3bee66d`, in `APP_STORE_LISTING.md`).
 
 ## Moving the pieces from Development to Production
 
