@@ -46,9 +46,12 @@ for quick checks instead.
       (`7022352f-aa2d-4d94-9a02-8cdfd3bee66d`, in `APP_STORE_LISTING.md`).
 - [x] iOS 1.0.3 (build 6), camera photos also saved to the Photos library plus a per-photo
       Export button (PR 8), uploaded 2026-11-22. No CloudKit schema change. App Store version
-      created with the What's New text in `whats-new-1.0.3.txt`, build 6 attached.
-- [ ] iOS 1.0.3: submit for review (waiting on Patrick's go-ahead).
-- [ ] macOS 1.0.3: not shipped yet (the change is iOS-only in practice; Patrick to decide).
+      created with the What's New text in `whats-new-1.0.3.txt`, build 6 attached. Submitted
+      for review 2026-11-22 (submission `93fd7110-1aab-45ee-95b8-970ca7bc0978`).
+- [x] macOS 1.0.3 (build 6), same code and What's New text, uploaded 2026-11-22. (On the Mac
+      the change is only the per-photo Export button; there's no camera there.) Build 6
+      attached and submitted for review 2026-11-22 (submission
+      `da451398-bd94-427f-bd2e-9d29f71b96d5`). Both platforms release automatically on approval.
 
 ## Moving the pieces from Development to Production
 
