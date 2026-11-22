@@ -22,7 +22,7 @@ asks for it. Don't install Xcode builds on his devices: a development build repl
 installed app and switches that device to the separate Development data. Use the Simulator
 for quick checks instead.
 
-## Status (2026-10-25)
+## Status (2026-11-22)
 
 - [x] App Store Connect record "Potter's Stages" (iOS + macOS), SKU `pottersstages01`.
 - [x] CloudKit schema deployed to Production (`CD_Piece`, `CD_Photo`, `Users`).
@@ -44,6 +44,14 @@ for quick checks instead.
       `bb86618c-facd-4474-945a-7b687c361074`). The ID Apple's email lists for it,
       `f6761898-05ab-4d0a-8bd4-b18846a8b131`, is not the `ppid` the link uses
       (`7022352f-aa2d-4d94-9a02-8cdfd3bee66d`, in `APP_STORE_LISTING.md`).
+- [x] iOS 1.0.3 (build 6), camera photos also saved to the Photos library plus a per-photo
+      Export button (PR 8), uploaded 2026-11-22. No CloudKit schema change. App Store version
+      created with the What's New text in `whats-new-1.0.3.txt`, build 6 attached. Submitted
+      for review 2026-11-22 (submission `93fd7110-1aab-45ee-95b8-970ca7bc0978`).
+- [x] macOS 1.0.3 (build 6), same code and What's New text, uploaded 2026-11-22. (On the Mac
+      the change is only the per-photo Export button; there's no camera there.) Build 6
+      attached and submitted for review 2026-11-22 (submission
+      `da451398-bd94-427f-bd2e-9d29f71b96d5`). Both platforms release automatically on approval.
 
 ## Moving the pieces from Development to Production
 

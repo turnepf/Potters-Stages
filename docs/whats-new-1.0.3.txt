@@ -1,0 +1,1 @@
+Photos you take in Potter's Stages are now also saved to your Photos library. And any photo can be exported from its piece's detail view: tap the share button under it to save it, AirDrop it or send it along.
