@@ -1,3 +1,4 @@
+import Photos
 import PhotosUI
 import SwiftUI
 
@@ -76,6 +77,7 @@ struct CameraView: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController,
                                    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let image = info[.originalImage] as? UIImage, let data = image.jpegData(compressionQuality: 0.9) {
+                CameraRollSaver.save(data) // full-size copy for the Photos app
                 parent.onCapture(data)
             }
             parent.dismiss()
@@ -83,6 +85,20 @@ struct CameraView: UIViewControllerRepresentable {
 
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             parent.dismiss()
+        }
+    }
+}
+
+/// Saves a copy of a new camera photo to the device's Photos library. Uses "add only"
+/// access, so the app can't read the library. If permission is declined the photo is still
+/// kept in the app (and can be exported from the photo's menu).
+enum CameraRollSaver {
+    static func save(_ data: Data) {
+        PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
+            guard status == .authorized || status == .limited else { return }
+            PHPhotoLibrary.shared().performChanges {
+                PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
+            }
         }
     }
 }

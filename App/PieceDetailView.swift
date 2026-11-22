@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct PieceDetailView: View {
     @Bindable var piece: Piece
@@ -100,6 +101,7 @@ struct PieceDetailView: View {
                     LazyHStack(spacing: 12) {
                         ForEach(Array(photos.enumerated()), id: \.element.id) { index, photo in
                             PhotoPage(photo: photo,
+                                      title: piece.displayTitle,
                                       position: photos.count > 1 ? "\(index + 1) of \(photos.count)" : nil,
                                       link: photo.stage == .idea ? inspirationLink : nil)
                                 .containerRelativeFrame(.horizontal)
@@ -146,6 +148,11 @@ struct PieceDetailView: View {
         }
         .pickerStyle(.menu)
 
+        if let exported = ExportedPhoto(photo) {
+            ShareLink(item: exported, preview: SharePreview(piece.displayTitle)) {
+                Label("Export Photo…", systemImage: "square.and.arrow.up")
+            }
+        }
         Button("Move to New Piece", systemImage: "rectangle.badge.plus") {
             let newPiece = Piece(stage: photo.stage)
             context.insert(newPiece)
@@ -217,6 +224,8 @@ struct PieceDetailView: View {
 /// One photo in the detail strip, captioned with its stage and date.
 private struct PhotoPage: View {
     let photo: Photo
+    /// Name shown in the share sheet.
+    let title: String
     /// "2 of 3" when the piece has several photos.
     let position: String?
     /// Where tapping the photo goes, if anywhere.
@@ -242,11 +251,32 @@ private struct PhotoPage: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
+                if let exported = ExportedPhoto(photo) {
+                    ShareLink(item: exported, preview: SharePreview(title)) {
+                        Label("Export", systemImage: "square.and.arrow.up")
+                            .labelStyle(.iconOnly)
+                            .frame(minWidth: 44, minHeight: 44)
+                    }
+                }
                 Text(photo.addedAt, format: .dateTime.month().day().year())
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
+    }
+}
+
+/// A photo packaged for the share sheet (Save Image, AirDrop, Files, Messages, ...).
+private struct ExportedPhoto: Transferable {
+    let data: Data
+
+    init?(_ photo: Photo) {
+        guard let data = photo.imageData else { return nil }
+        self.data = data
+    }
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .jpeg) { $0.data }
     }
 }
 
