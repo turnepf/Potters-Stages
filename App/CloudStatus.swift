@@ -1,4 +1,5 @@
 import CloudKit
+import CoreData
 import Foundation
 import Security
 import SwiftData
@@ -46,14 +47,18 @@ struct SyncCounts: Equatable {
 
     var isInSync: Bool { cloudPieces == localPieces && cloudPhotos == localPhotos }
 
-    var summary: String {
+    /// `activity` is what CloudKit last reported doing on this device (see `SyncMonitor`).
+    func summary(activity: String = "") -> String {
         var text = "iCloud has \(cloudPieces) pieces and \(cloudPhotos) photos. "
             + "This device has \(localPieces) pieces and \(localPhotos) photos."
         if !isInSync {
             text += "\n\nThey don't match yet. Keep the app open on Wi-Fi for a few minutes and check again."
         }
+        if !activity.isEmpty { text += "\n\n" + activity }
         return text
     }
+
+    var summary: String { summary() }
 
     static func check(_ context: ModelContext) async throws -> SyncCounts {
         var counts = SyncCounts(
@@ -89,5 +94,57 @@ struct SyncCounts: Equatable {
             return [:]  // nothing has ever been uploaded to this database
         }
         return counts
+    }
+}
+
+/// Remembers what SwiftData's iCloud mirroring last did on this device, including the error when
+/// it fails. The mirroring is automatic and silent, so without this a stuck upload looks fine.
+@MainActor
+final class SyncMonitor {
+    static let shared = SyncMonitor()
+
+    struct Entry: Equatable {
+        var date: Date
+        var succeeded: Bool
+        var error: String?
+    }
+
+    private(set) var lastSetup: Entry?
+    private(set) var lastImport: Entry?
+    private(set) var lastExport: Entry?
+    private var observer: NSObjectProtocol?
+
+    /// Call once at launch so events from startup aren't missed.
+    func start() {
+        guard observer == nil else { return }
+        observer = NotificationCenter.default.addObserver(
+            forName: NSPersistentCloudKitContainer.eventChangedNotification, object: nil, queue: .main
+        ) { [weak self] note in
+            guard let event = note.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey]
+                    as? NSPersistentCloudKitContainer.Event,
+                  let end = event.endDate else { return }  // still running
+            let entry = Entry(date: end, succeeded: event.succeeded, error: event.error?.localizedDescription)
+            MainActor.assumeIsolated {
+                switch event.type {
+                case .setup: self?.lastSetup = entry
+                case .import: self?.lastImport = entry
+                case .export: self?.lastExport = entry
+                @unknown default: break
+                }
+            }
+        }
+    }
+
+    /// Plain-language lines for the sync check alert.
+    var report: String {
+        func line(_ name: String, _ entry: Entry?) -> String {
+            guard let entry else { return "\(name): nothing yet this session" }
+            let when = entry.date.formatted(date: .omitted, time: .standard)
+            return entry.succeeded ? "\(name): OK at \(when)"
+                : "\(name): FAILED at \(when) — \(entry.error ?? "unknown error")"
+        }
+        return ["Last iCloud activity on this device:",
+                line("Setup", lastSetup), line("Download", lastImport), line("Upload", lastExport)]
+            .joined(separator: "\n")
     }
 }

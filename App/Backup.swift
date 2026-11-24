@@ -178,6 +178,10 @@ struct MoreMenu: ViewModifier {
                                 Task { await checkSync() }
                             }
                             .disabled(isCheckingSync)
+                            Button("Sync Now", systemImage: "arrow.triangle.2.circlepath.icloud") {
+                                Task { await checkSync(nudge: true) }
+                            }
+                            .disabled(isCheckingSync)
                         }
                         Button("Export Backup…", systemImage: "square.and.arrow.up", action: export)
                         Button("Import Backup…", systemImage: "square.and.arrow.down") { isImporting = true }
@@ -211,12 +215,19 @@ struct MoreMenu: ViewModifier {
             }
     }
 
-    private func checkSync() async {
+    /// There's no public way to force SwiftData's iCloud mirroring, so "Sync Now" saves any pending
+    /// changes (which wakes the uploader), waits a few seconds for it to report, then runs the check.
+    private func checkSync(nudge: Bool = false) async {
         isCheckingSync = true
         defer { isCheckingSync = false }
         let title = "iCloud: \(CloudEnvironment.current.rawValue)"
+        if nudge {
+            try? context.save()
+            try? await Task.sleep(for: .seconds(8))
+        }
         do {
-            message = (title, try await SyncCounts.check(context).summary)
+            let counts = try await SyncCounts.check(context)
+            message = (title, counts.summary(activity: SyncMonitor.shared.report))
         } catch {
             message = (title, "Couldn't reach iCloud: \(error.localizedDescription)")
         }
