@@ -5,6 +5,8 @@ import SwiftUI
 struct PottersStagesApp: App {
     private let container = ScreenshotMode.container ?? Store.makeContainer()
 
+    init() { SyncMonitor.shared.start() }
+
     var body: some Scene {
         WindowGroup {
             HomeView()

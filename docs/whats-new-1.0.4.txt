@@ -1,0 +1,1 @@
+New in the More menu: Sync Now, and the iCloud sync check now shows what iCloud last did on your device, including the reason if an upload fails. Handy if your pieces ever look out of date on another device.
